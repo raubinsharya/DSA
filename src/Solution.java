@@ -12,7 +12,16 @@ import java.util.*;
 
 public class Solution {
     public static void main(String[] args) {
-       
+        int arr[] = {0, 1, 2, 3, 4, 5, 7, 8, 9, 11};
+        System.out.println(findMissing(arr, 0, arr.length - 1));
+    }
+
+    private static int findMissing(int[] arr, int start, int end) {
+        if (start > end) return end + 1;
+        if (arr[start] != start) return start;
+        int mid = (start + end) / 2;
+        if (arr[mid] == mid) return findMissing(arr, mid+1, end);
+        return findMissing(arr, start, mid);
     }
 }
 
