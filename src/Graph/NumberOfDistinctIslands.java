@@ -65,7 +65,7 @@ public class NumberOfDistinctIslands {
     }
 
     private static String toString(int i, int j) {
-        return String.valueOf(i + j);
+        return String.valueOf(i + " " + j);
     }
 
     public static void main(String[] args) {
