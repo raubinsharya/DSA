@@ -1,6 +1,7 @@
 package Graph;
 
 import Utils.Pair;
+
 import java.util.*;
 
 // Problem Link
@@ -16,7 +17,8 @@ public class NumberOfDistinctIslands {
             for (int j = 0; j < n; j++) {
                 if (grid[i][j] == 1 && !visited[i][j]) {
                     List<String> shape = new ArrayList<>();
-                    bfs(grid, visited, shape, i, j, m, n);
+                    dfs(grid, visited, shape, i, j, i, j, m, n);
+                    // bfs(grid, visited, shape, i, j, m, n);
                     set.add(shape);
                 }
             }
@@ -45,6 +47,20 @@ public class NumberOfDistinctIslands {
                 }
             }
 
+        }
+    }
+
+    private static void dfs(int[][] grid, boolean[][] visited, List<String> shape, int row, int col, int orRow, int orCol, int m, int n) {
+        visited[row][col] = true;
+        shape.add(toString(orRow - row, orCol - col));
+        int delRow[] = {-1, 0, 1, 0};
+        int delCol[] = {0, 1, 0, -1};
+        for (int i = 0; i < 4; i++) {
+            int nRow = row + delRow[i];
+            int nCol = col + delCol[i];
+            if (nRow >= 0 && nRow < m && nCol >= 0 && nCol < n && !visited[nRow][nCol] && grid[nRow][nCol] == 1) {
+                dfs(grid, visited, shape, nRow, nCol, orRow, orCol, m, n);
+            }
         }
     }
 

@@ -5,6 +5,9 @@ import Utils.Pair;
 import java.util.LinkedList;
 import java.util.Queue;
 
+// Problem Link
+// Leetcode https://leetcode.com/problems/number-of-enclaves/
+// GFG https://practice.geeksforgeeks.org/problems/number-of-enclaves/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=number-of-enclaves
 public class NumberOfEnclave {
     int numberOfEnclaves(int[][] grid) {
         int res = 0;
