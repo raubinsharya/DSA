@@ -13,28 +13,19 @@ public class DetectCycleUndirectedGraph {
         boolean visited[] = new boolean[V];
         for (int i = 0; i < V; i++) {
             if (!visited[i]) {
-                if (checkCycleUsingBFS(adj, visited, i)) return true;
+                if (checkCycleUsingDFS(i, -1, visited, adj)) return true;
             }
         }
         return false;
     }
 
-    private boolean checkCycleUsingBFS(ArrayList<ArrayList<Integer>> adj, boolean[] visited, int src) {
-        visited[src] = true;
-        Queue<Pair<Integer, Integer>> queue = new LinkedList<>();
-        queue.offer(new Pair<>(src, -1));
-        while (!queue.isEmpty()) {
-            Pair<Integer, Integer> pair = queue.poll();
-            int node = pair.row;
-            int parent = pair.col;
-            for (int i : adj.get(node)) {
-                if (!visited[i]) {
-                    visited[i] = true;
-                    queue.offer(new Pair<>(i, node));
-                } else if (parent != i) {
-                    return true;
-                }
-            }
+    private boolean checkCycleUsingDFS(int node, int parent, boolean visited[], ArrayList<ArrayList<Integer>> adj) {
+        visited[node] = true;
+        for (int i : adj.get(node)) {
+            if (!visited[i]) {
+                if (checkCycleUsingDFS(i, node, visited, adj)) return true;
+            } else if (i != parent) return true;
+
         }
         return false;
     }
