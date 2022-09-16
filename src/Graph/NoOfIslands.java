@@ -2,21 +2,13 @@ package Graph;
 
 import java.util.LinkedList;
 import java.util.Queue;
+import Utils.Pair;
 
 /*
  Problem Link
  https://practice.geeksforgeeks.org/problems/find-the-number-of-islands/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=find_the_number_of_islands
 */
 
-class Pair<R, C> {
-    R row;
-    C col;
-
-    public Pair(R row, C col) {
-        this.row = row;
-        this.col = col;
-    }
-}
 
 public class NoOfIslands {
     public static int numIslands(char[][] grid) {
@@ -43,8 +35,8 @@ public class NoOfIslands {
         int n = grid[0].length;
         while (!queue.isEmpty()) {
             Pair<Integer, Integer> temp = queue.poll();
-            int ro = temp.row;
-            int co = temp.col;
+            int ro = temp.first;
+            int co = temp.second;
             int delRow[] = {-1, 0, 1, 0};
             int delCol[] = {0, 1, 0, -1};
             for (int i = 0; i < 4; i++) {
