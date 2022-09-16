@@ -13,13 +13,13 @@ public class DetectCycleUndirectedGraph {
         boolean visited[] = new boolean[V];
         for (int i = 0; i < V; i++) {
             if (!visited[i]) {
-                if (checkCycle(adj, visited, i)) return true;
+                if (checkCycleUsingBFS(adj, visited, i)) return true;
             }
         }
         return false;
     }
 
-    private boolean checkCycle(ArrayList<ArrayList<Integer>> adj, boolean[] visited, int src) {
+    private boolean checkCycleUsingBFS(ArrayList<ArrayList<Integer>> adj, boolean[] visited, int src) {
         visited[src] = true;
         Queue<Pair<Integer, Integer>> queue = new LinkedList<>();
         queue.offer(new Pair<>(src, -1));
