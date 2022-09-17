@@ -14,7 +14,8 @@ public class BipartiteGraph {
         Arrays.fill(color, -1);
         for (int i = 0; i < V; i++) {
             if (color[i] == -1) {
-                if (checkBFS(color, adj, i) == false) return false;
+                // if (checkBFS(color, adj, i) == false) return false;
+                if (!checkDFS(color, adj, i, 0)) return false;
             }
         }
         return true;
@@ -32,6 +33,16 @@ public class BipartiteGraph {
                     color[i] = 1 - color[node];
                 } else if (color[i] == color[node]) return false;
             }
+        }
+        return true;
+    }
+
+    boolean checkDFS(int color[], ArrayList<ArrayList<Integer>> adj, int node, int col) {
+        color[node] = col;
+        for (int i : adj.get(node)) {
+            if (color[i] == -1) {
+                if (!checkDFS(color, adj, i, 1 - col)) return false;
+            } else if (color[i] == col) return false;
         }
         return true;
     }
