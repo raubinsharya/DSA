@@ -1,5 +1,6 @@
+package Utils;
 
-// * Definition for a binary tree node. 
+// * Definition for a binary tree node.
 public class TreeNode {
     int val;
     TreeNode left;
