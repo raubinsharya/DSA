@@ -46,4 +46,26 @@ public class BipartiteGraph {
         }
         return true;
     }
+
+    boolean checkDFS(int color[], int[][] adj, int node, int col) {
+        color[node] = col;
+        for (int i : adj[node]) {
+            if (color[i] == -1) {
+                if (!checkDFS(color, adj, i, 1 - col)) return false;
+            } else if (color[i] == col) return false;
+        }
+        return true;
+    }
+
+    // Leetcode
+    public boolean isBipartite(int[][] graph) {
+        int color[] = new int[graph.length];
+        Arrays.fill(color, -1);
+        for (int i = 0; i < graph.length; i++) {
+            if (color[i] == -1) {
+                if (checkDFS(color, graph, i, 0) == false) return false;
+            }
+        }
+        return true;
+    }
 }
