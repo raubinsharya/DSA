@@ -3,8 +3,8 @@ package Graph;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
-import java.util.Stack;
-
+// Problem Link
+// https://practice.geeksforgeeks.org/problems/topological-sort/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=topological-sort
 public class KahnsAlgo {
     static int[] topoSort(int V, ArrayList<ArrayList<Integer>> adj) {
         int res[] = new int[V];
