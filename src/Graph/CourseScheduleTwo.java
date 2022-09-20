@@ -5,7 +5,7 @@ import java.util.*;
 // Problem Link
 // https://leetcode.com/problems/course-schedule-ii/submissions/
 //
-public class TaskScheduleTwo {
+public class CourseScheduleTwo {
     // leetcode
     public int[] findOrder(int V, int[][] prerequisites) {
         int row = prerequisites.length;
