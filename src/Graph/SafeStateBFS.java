@@ -59,4 +59,8 @@ public class SafeStateBFS {
         Collections.sort(res);
         return res;
     }
+
+    public static void main(String[] args) {
+        System.out.println((int) 'a');
+    }
 }
