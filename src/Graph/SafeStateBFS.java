@@ -51,7 +51,6 @@ public class SafeStateBFS {
             res.add(node);
             for (int i : revAdj.get(node)) if (--inDeg[i] == 0) queue.offer(i);
         }
-
         Collections.sort(res);
         return res;
     }
