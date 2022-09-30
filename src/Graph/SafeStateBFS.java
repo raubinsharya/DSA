@@ -2,6 +2,11 @@ package Graph;
 
 import java.util.*;
 
+// Problem Link
+// https://leetcode.com/problems/find-eventual-safe-states/
+// https://practice.geeksforgeeks.org/problems/eventual-safe-states/1?utm_source=youtube&utm_medium=collab_striver_ytdescription&utm_campaign=eventual-safe-states
+
+
 public class SafeStateBFS {
     List<Integer> eventualSafeNodes(int V, List<List<Integer>> adj) {
         List<List<Integer>> revAdj = new ArrayList<>();
