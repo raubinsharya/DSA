@@ -1,11 +1,13 @@
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.Scanner;
+import Utils.Pair;
+
+import java.util.*;
 
 public class Vinit {
     public static void main(String[] args) {
         int n = 456;
-        System.out.println(maxStrength(n));
+        // System.out.println(maxStrength(n));
+        int arr[] = new int[2];
+        System.out.println(arr[0] = 9);
     }
 
     public static int maxStrength(int n) {
