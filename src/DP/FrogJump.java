@@ -7,7 +7,7 @@ package DP;
 public class FrogJump {
     public static int frogJump(int n, int heights[]) {
         int dp[] = new int[n + 1];
-        return solveBottomUp(n, heights);
+        return solveBottomUpWithSpaceOptimization(n, heights);
         // return solveTopDown(n - 1, dp, heights);
     }
 
@@ -24,20 +24,20 @@ public class FrogJump {
     }
 
     // Bottom-Up approach without space optimization
-//    private static int solveBottomUp(int n, int[] heights) {
-//        int dp[] = new int[n + 1];
-//        dp[0] = 0;
-//        for (int i = 1; i < n; i++) {
-//            int one = dp[i - 1] + Math.abs(heights[i] - heights[i - 1]);
-//            int two = Integer.MAX_VALUE;
-//            if (i > 1) two = dp[i - 2] + Math.abs(heights[i] - heights[i - 2]);
-//            dp[i] = Math.min(one, two);
-//        }
-//        return dp[n - 1];
-//    }
+    private static int solveBottomUpWithoutSpaceOptimization(int n, int[] heights) {
+        int dp[] = new int[n + 1];
+        dp[0] = 0;
+        for (int i = 1; i < n; i++) {
+            int one = dp[i - 1] + Math.abs(heights[i] - heights[i - 1]);
+            int two = Integer.MAX_VALUE;
+            if (i > 1) two = dp[i - 2] + Math.abs(heights[i] - heights[i - 2]);
+            dp[i] = Math.min(one, two);
+        }
+        return dp[n - 1];
+    }
 
     // Bottom-Up approach with space optimization
-    private static int solveBottomUp(int n, int[] heights) {
+    private static int solveBottomUpWithSpaceOptimization(int n, int[] heights) {
         int first = 0;
         int second = 0;
         for (int i = 1; i < n; i++) {
