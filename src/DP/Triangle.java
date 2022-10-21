@@ -1,5 +1,6 @@
 package DP;
 
+import java.util.Arrays;
 import java.util.List;
 
 // https://leetcode.com/problems/triangle/description/
@@ -7,6 +8,7 @@ import java.util.List;
 public class Triangle {
     public static int minimumPathSum(int[][] triangle, int n) {
         int dp[][] = new int[n][triangle[n - 1].length];
+        for (int[] rows : dp) Arrays.fill(rows, -1);
         return solveRec(triangle, n - 1, 0, 0, dp);
     }
 
@@ -26,7 +28,7 @@ public class Triangle {
 
     private static int solveRecLetCode(List<List<Integer>> triangle, int n, int row, int col, int[][] dp) {
         if (row == n) return triangle.get(row).get(col);
-        if (dp[row][col] > 0) return dp[row][col];
+        if (dp[row][col] != -1) return dp[row][col];
         int bottom = triangle.get(row).get(col) + solveRecLetCode(triangle, n, row + 1, col, dp);
         int right = triangle.get(row).get(col) + solveRecLetCode(triangle, n, row + 1, col + 1, dp);
         return dp[row][col] = Math.min(bottom, right);
