@@ -9,7 +9,7 @@ public class ChocolatePickup {
         int dp[][][] = new int[r][c][c];
         for (int row[][] : dp)
             for (int ro[] : row) Arrays.fill(ro, -1);
-        return solveTopDown(0, 0, c - 1, r - 1, c, grid, dp);
+        return solveTopDown(0,  0, c - 1, r - 1, c, grid, dp);
     }
 
     private static int solveTopDown(int row, int col1, int col2, int r, int c, int[][] grid, int dp[][][]) {
