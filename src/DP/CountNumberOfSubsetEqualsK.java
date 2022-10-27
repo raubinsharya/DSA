@@ -13,10 +13,10 @@ public class CountNumberOfSubsetEqualsK {
     }
 
     private static int solve(int[] arr, int target, int index, int dp[][]) {
-        if (target == 0) return 1;
         if (index == 0) {
-            if (arr[0] == target) return 1;
-            else return 0;
+            if (target == 0 && arr[0] == 0) return 2; // base case for input like (0 0 4)
+            if (target == arr[0] || target == 0) return 1;
+            return 0;
         }
         if (dp[index][target] != -1) return dp[index][target];
         int pick = 0;
