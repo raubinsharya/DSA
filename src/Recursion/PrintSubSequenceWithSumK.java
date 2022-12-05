@@ -11,9 +11,7 @@ public class PrintSubSequenceWithSumK {
             }
             return;
         }
-        ds.add(arr[idx]);
         printSubSequence(arr, idx + 1, n, k, sum + arr[idx], ds);// pick condition then element will be added to sum
-        ds.removeLast();
         printSubSequence(arr, idx + 1, n, k, sum, ds); // not pick condition then sum element will not be added to sum
     }
 
