@@ -4,7 +4,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Set;
 //https://leetcode.com/problems/vowel-spellchecker/description/
-public class MediumGeneral {
+public class VowelSpellChecker {
     public String[] spellchecker(String[] wordlist, String[] queries) {
         Set<String> words = new HashSet<>();
         HashMap<String, String> hm = new HashMap<>();
