@@ -4,7 +4,7 @@ public class QuickSort {
     public static void main(String[] args) {
         int arr[] = {1, 4, 3, 9, 6, 5, 8, 20, 11, 7};
         quickSort(arr, 0, arr.length - 1);
-        for (int i : arr) System.out.println(i);
+         for (int i : arr) System.out.println(i);
     }
 
     private static void quickSort(int[] arr, int l, int r) {
