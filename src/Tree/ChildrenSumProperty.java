@@ -1,26 +1,24 @@
 package Tree;
 
-import Utils.Node;
-// https://practice.geeksforgeeks.org/problems/children-sum-parent/1
+import Utils.TreeNode;
+
 public class ChildrenSumProperty {
-    public static int isSumProperty(Node root) {
-        if (root == null) return 1;
-        return solve(root) > 0 ? 1 : 0;
+    public void makeChildrenSumProperty(TreeNode root) {
+        if (root == null) return;
+        solve(root);
     }
 
-    private static int solve(Node root) {
-        if (root.left == null && root.right == null) return root.data;
-        int left = 0;
-        int right = 0;
-        if (root.left != null) {
-            left = solve(root.left);
+    private int solve(TreeNode root) {
+        if (root == null) return 0;
+        if (root.left != null && root.right != null) {
+            if (root.left.val + root.right.val < root.val) {
+                root.left.val = root.val;
+                root.right.val = root.val;
+            } else root.val = root.left.val + root.right.val;
         }
-        if (left == -1) return -1;
-        if (root.right != null) {
-            right = solve(root.right);
-        }
-        if (right == -1) return -1;
-        if (root.data != left + right) return -1;
-        return root.data;
+        int left = solve(root.left);
+        int right = solve(root.right);
+        root.val = Math.max(root.val, left + right);
+        return root.val;
     }
 }
