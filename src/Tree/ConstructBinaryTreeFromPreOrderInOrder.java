@@ -4,6 +4,7 @@ import Utils.TreeNode;
 
 import java.util.HashMap;
 import java.util.Map;
+
 // https://leetcode.com/problems/construct-binary-tree-from-preorder-and-inorder-traversal/description/
 public class ConstructBinaryTreeFromPreOrderInOrder {
     public TreeNode buildTree(int[] preorder, int[] inorder) {
@@ -11,7 +12,7 @@ public class ConstructBinaryTreeFromPreOrderInOrder {
         for (int i = 0; i < inorder.length; i++) {
             inMap.put(inorder[i], i);
         }
-        TreeNode root = solve(preorder, 0, preorder.length - 1, inorder, 0, inorder.length, inMap);
+        TreeNode root = solve(preorder, 0, preorder.length - 1, inorder, 0, inorder.length - 1, inMap);
         return root;
     }
 
