@@ -1,19 +1,20 @@
 package Tree;
 
-final class TreeNode<T> {
-    T data;
-    TreeNode<T> left;
-    TreeNode<T> right;
-
-    TreeNode(T data) {
-        this.data = data;
-        left = null;
-        right = null;
-    }
-};
 
 // https://www.codingninjas.com/codestudio/problems/ceil-from-bst_920464
 public class CeilBST {
+
+    private class TreeNode<T> {
+        T data;
+        TreeNode<T> left;
+        TreeNode<T> right;
+
+        TreeNode(T data) {
+            this.data = data;
+            left = null;
+            right = null;
+        }
+    }
     public static int findCeil(TreeNode<Integer> root, int x) {
         if (root == null) return -1;
         int left = findCeil(root.left, x);
