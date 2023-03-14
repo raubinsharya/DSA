@@ -10,4 +10,13 @@ public class Pairs<X, Y, Z> {
         this.second = second;
         this.third = third;
     }
+
+    @Override
+    public String toString() {
+        return "Pairs{" +
+                "first=" + first +
+                ", second=" + second +
+                ", third=" + third +
+                '}';
+    }
 }

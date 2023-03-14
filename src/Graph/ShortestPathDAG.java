@@ -14,7 +14,7 @@ public class ShortestPathDAG {
         int res[] = new int[N];
         ArrayList<ArrayList<Pair<Integer, Integer>>> adj = new ArrayList<>();
         for (int i = 0; i < N; i++) adj.add(new ArrayList<>());
-        for (int i = 0; i < N; i++) {
+        for (int i = 0; i < M; i++) {
             adj.get(edges[i][0]).add(new Pair<>(edges[i][1], edges[i][2]));
         }
 
@@ -27,7 +27,7 @@ public class ShortestPathDAG {
                 dfs(adj, visited, stack, i);
             }
         }
-        Arrays.fill(dist, (int) 1e9);
+        Arrays.fill(dist, 200);
         dist[0] = 0;
         while (!stack.isEmpty()) {
             int i = stack.pop();
@@ -35,9 +35,7 @@ public class ShortestPathDAG {
                 dist[node.first] = Math.min(dist[i] + node.second, dist[node.first]);
             }
         }
-        for (int i = 0; i < N; i++) {
-            if (dist[i] == (int) 1e9) dist[i] = -1;
-        }
+        for (int i = 0; i < N; i++) if (dist[i] == 200) dist[i] = -1;
         return dist;
     }
 

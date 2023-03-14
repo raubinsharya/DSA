@@ -13,8 +13,7 @@ public class WordLadderTwo {
         levelList.add(beginWord);
         queue.offer(levelList);
         set.remove(beginWord);
-        boolean flag = false;
-        while (!queue.isEmpty() && !flag) {
+        while (!queue.isEmpty()) {
             int size = queue.size();
             Set<String> cache = new HashSet<>();
             while (size-- > 0) {
@@ -22,8 +21,6 @@ public class WordLadderTwo {
                 String word = list.get(list.size() - 1);
                 if (word.equals(endWord)) {
                     result.add(list);
-                    flag = true;
-                    continue;
                 }
                 for (int i = 0; i < word.length(); i++) {
                     for (char c = 'a'; c <= 'z'; c++) {
