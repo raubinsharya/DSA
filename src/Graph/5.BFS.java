@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.Queue;
 // https://practice.geeksforgeeks.org/problems/bfs-traversal-of-graph/1
-public class BFS {
+class BFS {
     public ArrayList<Integer> bfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj) {
         ArrayList<Integer> res = new ArrayList<>();
         if (adj == null || adj.size() == 0) return res;
